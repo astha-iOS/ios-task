@@ -6,12 +6,12 @@ import RxSwift
  view controller is the `CampaignsListingViewController`.
  */
 class CampaignListingView: UICollectionView {
-
+    
     /**
      A strong reference to the view's data source. Needed because the view's dataSource property from UIKit is weak.
      */
     @IBOutlet var strongDataSource: UICollectionViewDataSource!
-
+    
     /**
      Displays the given campaign list.
      */
@@ -47,7 +47,8 @@ class CampaignListingView: UICollectionView {
  The data source for the `CampaignsListingView` which is used to display the list of campaigns.
  */
 class ListingDataSource: NSObject, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-
+    
+    
     /** The campaigns that need to be displayed. */
     let campaigns: [CampaignListingView.Campaign]
 
@@ -73,20 +74,43 @@ class ListingDataSource: NSObject, UICollectionViewDataSource, UICollectionViewD
             campaignCell.moodImage = campaign.moodImage
             campaignCell.name = campaign.name
             campaignCell.descriptionText = campaign.description
+
         } else {
             assertionFailure("The cell should a CampaignCell")
         }
+        cell.layoutIfNeeded()
         return cell
     }
+    //--for dynemic size of collection cell
+    // MARK: - UICollectionViewFlowLayout Delegate
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        // Set up desired width
+        
+        let targetWidth: CGFloat = collectionView.frame.size.width-16
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,
-                        sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.size.width, height: 450)
+        let reuseIdentifier =  CampaignListingView.Cells.campaignCell.rawValue
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? CampaignCell
+        let campaign = campaigns[indexPath.item]
+        cell?.moodImage = campaign.moodImage
+        cell?.name = campaign.name
+        cell?.descriptionText = campaign.description
+             
+        // Cell's size is determined in nib file, need to set it's width (in this case), and inside, use this cell's width to set label's preferredMaxLayoutWidth, thus, height can be determined, this size will be returned for real cell initialization
+        cell!.bounds = CGRect(x: 0, y: 0, width: targetWidth, height: cell!.bounds.height)
+        cell!.contentView.bounds = cell!.bounds
+        
+        // Layout subviews, this will let labels on this cell to set preferredMaxLayoutWidth
+        cell!.setNeedsLayout()
+        cell!.layoutIfNeeded()
+        
+        var size = cell!.contentView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
+        // Still need to force the width, since width can be smalled due to break mode of labels
+        size.width = targetWidth
+        return size
     }
 
+ 
 }
-
-
 
 /**
  The data source for the `CampaignsListingView` which is used while the actual contents are still loaded.

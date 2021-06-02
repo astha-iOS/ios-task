@@ -7,6 +7,7 @@ import RxSwift
  is configured in the storyboard (Main.storyboard).
  */
 class CampaignListingViewController: UIViewController {
+    
 
     private let disposeBag = DisposeBag()
 
@@ -14,10 +15,14 @@ class CampaignListingViewController: UIViewController {
 
     @IBOutlet
     private(set) weak var typedView: CampaignListingView!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
+     //   UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+       
+        
         assert(typedView != nil)
     }
 

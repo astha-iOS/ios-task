@@ -34,6 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		075F008126679D0A00F8FC9C /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		23F7B5961F5958F300154DD9 /* CampaignBrowser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CampaignBrowser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23F7B5991F5958F300154DD9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		23F7B59E1F5958F300154DD9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -80,6 +81,7 @@
 		23F7B58D1F5958F300154DD9 = {
 			isa = PBXGroup;
 			children = (
+				075F008126679D0A00F8FC9C /* .gitignore */,
 				23F7B5E11F59A76A00154DD9 /* README.md */,
 				23F7B5C91F597B7700154DD9 /* Podfile */,
 				23F7B5981F5958F300154DD9 /* CampaignBrowser */,
@@ -245,7 +247,7 @@
 				TargetAttributes = {
 					23F7B5951F5958F300154DD9 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = Y2NQ6FJX24;
+						DevelopmentTeam = UXY7GXJWTF;
 						LastSwiftMigration = 1240;
 						ProvisioningStyle = Automatic;
 					};
@@ -515,7 +517,7 @@
 			baseConfigurationReference = EFF862F2521D154547AA0BBB /* Pods-CampaignBrowser.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = Y2NQ6FJX24;
+				DEVELOPMENT_TEAM = UXY7GXJWTF;
 				INFOPLIST_FILE = CampaignBrowser/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -530,7 +532,7 @@
 			baseConfigurationReference = 47520166195A4003183C8D8A /* Pods-CampaignBrowser.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = Y2NQ6FJX24;
+				DEVELOPMENT_TEAM = UXY7GXJWTF;
 				INFOPLIST_FILE = CampaignBrowser/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

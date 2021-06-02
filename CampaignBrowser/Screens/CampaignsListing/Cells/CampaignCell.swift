@@ -50,4 +50,6 @@ class CampaignCell: UICollectionViewCell {
         assert(descriptionLabel != nil)
         assert(imageView != nil)
     }
+    
+
 }
