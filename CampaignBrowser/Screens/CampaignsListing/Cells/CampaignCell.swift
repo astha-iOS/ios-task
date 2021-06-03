@@ -49,7 +49,5 @@ class CampaignCell: UICollectionViewCell {
         assert(nameLabel != nil)
         assert(descriptionLabel != nil)
         assert(imageView != nil)
-    }
-    
-
+    }    
 }

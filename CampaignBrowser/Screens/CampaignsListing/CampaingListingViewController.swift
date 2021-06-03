@@ -19,10 +19,6 @@ class CampaignListingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
-     //   UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-       
-        
         assert(typedView != nil)
     }
 

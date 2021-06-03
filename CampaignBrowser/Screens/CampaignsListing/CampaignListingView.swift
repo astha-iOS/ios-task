@@ -85,8 +85,7 @@ class ListingDataSource: NSObject, UICollectionViewDataSource, UICollectionViewD
     // MARK: - UICollectionViewFlowLayout Delegate
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         // Set up desired width
-        
-        let targetWidth: CGFloat = collectionView.frame.size.width-16
+        let targetWidth: CGFloat = collectionView.frame.size.width-16 //(8:leading+8:tralling)
 
         let reuseIdentifier =  CampaignListingView.Cells.campaignCell.rawValue
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? CampaignCell
@@ -95,7 +94,7 @@ class ListingDataSource: NSObject, UICollectionViewDataSource, UICollectionViewD
         cell?.name = campaign.name
         cell?.descriptionText = campaign.description
              
-        // Cell's size is determined in nib file, need to set it's width (in this case), and inside, use this cell's width to set label's preferredMaxLayoutWidth, thus, height can be determined, this size will be returned for real cell initialization
+        // Need to set it's width, and inside, use this cell's width to set label's preferredMaxLayoutWidth, thus, height can be determined, this size will be returned for real cell initialization
         cell!.bounds = CGRect(x: 0, y: 0, width: targetWidth, height: cell!.bounds.height)
         cell!.contentView.bounds = cell!.bounds
         
